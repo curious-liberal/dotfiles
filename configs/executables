@@ -8,7 +8,7 @@ exec_always setxkbmap -layout gb
 exec_always sxhkd
 
 # Display Wallpaper
-exec_always feh --bg-fill "/home/fsociety/Pictures/Wallpapers/cyberpunk-glasses.jpg"
+exec_always feh --bg-fill "$HOME/Pictures/Wallpapers/cyberpunk-glasses.jpg"
 
 # Always load Flameshot, delete recent files and start picom
 exec --no-startup-id mate-power-manager
