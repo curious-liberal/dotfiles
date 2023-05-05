@@ -1,0 +1,9 @@
+# Assign Programs to specifc workspaces
+
+assign [class="firefox"] "1  "
+assign [class="VirtualBox Manager"] "7  "
+assign [class="KeePassXC"] "10  "
+assign [class="Signal"] "16  "
+assign [class="Gimp"] "17  "
+assign [class="nuclear"] "19  "
+assign [class="Popcorn-Time"] "20  "
