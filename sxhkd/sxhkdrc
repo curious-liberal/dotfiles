@@ -1,0 +1,109 @@
+# Restart sxhkd
+super + Escape
+	pkill -USR1 sxhkd
+
+# Open terminal
+{super,alt} + Return
+	alacritty
+
+# Run dmenu
+{super, alt} + d
+	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5'
+
+# Kill i3 window
+{super,alt} + q
+	i3-msg kill
+
+# Change workspace
+
+## Workspaces 1-10
+super + {1-9,0}
+	i3-msg workspace number {"1  ","2  ","3   ","4   ","5   ","6   ","7  ","8  ","9  ","10  "}
+
+## Workspaces 11-20
+alt + {1-9,0}
+	i3-msg workspace number {"11  ","12  ","13   ","14   ","15   ","16  ","17  ","18  ","19  ","20  "}
+
+# Move workspaces
+
+## Workspaces 1-10
+super + shift + {1-9,0}
+	i3-msg move container to workspace {"1  ","2  ","3   ","4   ","5   ","6   ","7  ","8  ","9  ","10  "}
+
+## Workspaces 11-20
+alt + shift + {1,9,0}
+	i3-msg move container to workspace {"11  ","12  ","13   ","14   ","15   ","16  ","17  ","18  ","19  ","20  "}
+
+# Full screen
+{super,alt} + f
+	i3-msg fullscreen toggle
+
+# Change focus to-and-from windows
+{super,alt} + {h,j,k,l}
+	i3-msg focus {left,down,up,right}
+
+# Because of weird bug, must add this (unfortunately)
+{super,alt} + k
+	i3-msg focus up
+{super,alt} + l
+	i3-msg focus right
+
+# Change focus from tiling to floating windows
+{super,alt} + Shift + space
+	i3-msg focus mode_toggle
+
+# Move a focus window around a workspace
+{super,alt} + shift + {h,j,k,l}
+	i3-msg move {left,down,up,right}
+
+# Split in vertical orientation
+{super,alt} + v
+	i3-msg split v
+
+# Change container layout
+
+## Stacked
+{super,alt} + s
+	i3-msg layout stacking
+
+## Toggle split
+{super,alt} + e
+	i3-msg layout toggle split
+
+# Select parent container
+{super,alt} + a
+	i3-msg focus parent
+
+# Scratchpad
+
+## Move tile to scratchpad
+{super,alt} + shift + minus
+	i3-msg move scratchpad
+
+## Cycle/close scratchpad
+{super,alt} + minus
+	i3-msg scratchpad show
+
+## Toggle between tiling and floating (puts scratchpad into title again)
+{super,alt} + space
+	i3-msg floating toggle
+
+# Regernate config and restart i3 inplace (keep everything the way it was)
+{super,alt} + shift + r
+	python $HOME/.config/i3/Scripts/generate_config.py && i3-msg restart
+
+# Exit i3 session
+{super,alt} + shift + e
+	i3-nagbar -t warning -m 'Are you sure you want to exit i3 and your xsession?' -B 'Yes, exit i3' 'i3-msg exit'
+
+# Lock i3
+{super,alt} + shift + q
+	sh $HOME/.config/i3/Scripts/blurlock.sh
+
+# Enter "resize" mode
+{super,alt} + r
+	i3-msg mode "resize"
+
+# Enter adjust gaps mode
+{super,alt} + shift + g
+	i3-msg mode "$mode_gaps"
