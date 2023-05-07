@@ -18,3 +18,4 @@ exec_always rm ~/.bash_history
 exec_always echo "" > ~/.python_history
 exec_always echo "" > ~/.viminfo
 exec_always picom --no-fading-openclose --corner-radius=5 --inactive-opacity 1 -I 1 -O 1 -m 1
+

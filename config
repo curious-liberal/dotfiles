@@ -3,6 +3,7 @@ font pango:roboto-medium 12
 
 set $mod Mod4
 set $alt Mod1
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -13,7 +14,7 @@ exec_always setxkbmap -layout gb
 exec_always sxhkd
 
 # Display Wallpaper
-exec_always feh --bg-fill "/home/fsociety/Pictures/Wallpapers/cyberpunk-glasses.jpg"
+exec_always feh --bg-fill "$HOME/Pictures/Wallpapers/cyberpunk-glasses.jpg"
 
 # Always load Flameshot, delete recent files and start picom
 exec --no-startup-id mate-power-manager
@@ -23,6 +24,7 @@ exec_always rm ~/.bash_history
 exec_always echo "" > ~/.python_history
 exec_always echo "" > ~/.viminfo
 exec_always picom --no-fading-openclose --corner-radius=5 --inactive-opacity 1 -I 1 -O 1 -m 1
+
 # Resize windows
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -102,6 +104,7 @@ bar {
 		-m publicip disk:root battery memory cpu todo pomodoro playerctl date pulseout\
 		-p disk.format=" {left}" disk.system="SI" memory.system="SI" memory.format=" {used}  ({percent:05.02f}%)" date.format="%a  %-d  %b  %H : %M" date.interval=1 todo_org.remaining="false" todo.file="~/Documents/todo.txt" playerctl.layout="playerctl.prev, playerctl.pause, playerctl.next" pulseout.showbars="true" 
 }
+
 # Outputs for two monitors
 set $m1 "eDP-1"
 set $m2 "HDMI-1-1"
@@ -126,6 +129,7 @@ workspace 17 output $m2
 workspace 18 output $m2
 workspace 19 output $m2
 workspace 20 output $m2
+
 # Assign Programs to specifc workspaces
 
 assign [class="firefox"] "1  "
@@ -135,6 +139,7 @@ assign [class="Signal"] "16  "
 assign [class="Gimp"] "17  "
 assign [class="nuclear"] "19  "
 assign [class="Popcorn-Time"] "20  "
+
 # Define colours for easy switching
 #
 set $bg-color 	         #6790EB
@@ -153,3 +158,4 @@ client.focused          $bg-color           $bg-color          $text-color      
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+

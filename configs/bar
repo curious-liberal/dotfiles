@@ -8,3 +8,4 @@ bar {
 		-m publicip disk:root battery memory cpu todo pomodoro playerctl date pulseout\
 		-p disk.format=" {left}" disk.system="SI" memory.system="SI" memory.format=" {used}  ({percent:05.02f}%)" date.format="%a  %-d  %b  %H : %M" date.interval=1 todo_org.remaining="false" todo.file="~/Documents/todo.txt" playerctl.layout="playerctl.prev, playerctl.pause, playerctl.next" pulseout.showbars="true" 
 }
+
