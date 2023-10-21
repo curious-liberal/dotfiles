@@ -1,0 +1,382 @@
+# i3 config file (v4)
+font pango:roboto-medium 12
+
+set $mod Mod4
+set $alt Mod1
+
+# Open terminal
+bindsym $mod+Return exec alacritty
+bindsym $alt+Return exec alacritty
+
+# Run dmenu
+bindsym $mod+d exec dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5'
+bindsym $alt+d exec dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5'
+
+# Run dmenu for bookmarks (open in default browser)
+bindsym $mod+b exec xdg-open $(grep -v '^#' $HOME/.config/i3/bm.txt | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5' | cut -d' ' -f1)
+bindsym $alt+b exec xdotool type $(grep -v '^#' $HOME/.config/i3/bm.txt | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5' | cut -d' ' -f1)
+
+# Run dmenu to add bookmark
+bindsym $mod+Shift+b exec echo -n | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5' -p "URL: " >> $HOME/.config/i3/bm.txt
+bindsym $alt+Shift+b exec echo -n | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5' -p "URL: " >> $HOME/.config/i3/bm.txt
+
+# Kill i3 window
+bindsym $mod+q kill
+bindsym $alt+q kill
+
+# Exit i3
+bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+bindsym $alt+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+
+# Change workspace
+
+## Defining workspaces
+set $ws1 "1  "
+set $ws2 "2  "
+set $ws3 "3   "
+set $ws4 "4   "
+set $ws5 "5   "
+set $ws6 "6  "
+set $ws7 "7  "
+set $ws8 "8  "
+set $ws9 "9  "
+set $ws10 "10  "
+set $ws11 "11  "
+set $ws12 "12  "
+set $ws13 "13   "
+set $ws14 "14   "
+set $ws15 "15   "
+set $ws16 "16  "
+set $ws17 "17  "
+set $ws18 "18  "
+set $ws19 "19  "
+set $ws20 "20  "
+
+## Change workspaces
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $alt+1 workspace $ws11
+bindsym $alt+2 workspace $ws12
+bindsym $alt+3 workspace $ws13
+bindsym $alt+4 workspace $ws14
+bindsym $alt+5 workspace $ws15
+bindsym $alt+6 workspace $ws16
+bindsym $alt+7 workspace $ws17
+bindsym $alt+8 workspace $ws18
+bindsym $alt+9 workspace $ws19
+bindsym $alt+0 workspace $ws20
+
+## Move workspaces
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $alt+Shift+1 move container to workspace $ws11
+bindsym $alt+Shift+2 move container to workspace $ws12
+bindsym $alt+Shift+3 move container to workspace $ws13
+bindsym $alt+Shift+4 move container to workspace $ws14
+bindsym $alt+Shift+5 move container to workspace $ws15
+bindsym $alt+Shift+6 move container to workspace $ws16
+bindsym $alt+Shift+7 move container to workspace $ws17
+bindsym $alt+Shift+8 move container to workspace $ws18
+bindsym $alt+Shift+9 move container to workspace $ws19
+bindsym $alt+Shift+0 move container to workspace $ws20
+
+# Full screen
+bindsym $mod+f fullscreen toggle
+bindsym $alt+f fullscreen toggle
+
+# Change focus to-and-from windows
+bindsym $mod+h focus left
+bindsym $alt+h focus left
+bindsym $mod+j focus down
+bindsym $alt+j focus down
+bindsym $mod+k focus up
+bindsym $alt+k focus up
+bindsym $mod+l focus right
+bindsym $alt+l focus right
+
+# Move a focused window around a workspace
+bindsym $mod+Shift+h move left
+bindsym $alt+Shift+h move, left
+bindsym $mod+Shift+j move down
+bindsym $alt+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $alt+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $alt+Shift+l move right
+
+# Change focus from tiling to floating windows
+bindsym $mod+Shift+space focus mode_toggle
+
+# Split in vertical orientation
+bindsym $mod+v split v
+bindsym $alt+v split v
+
+# Change container layout
+
+## Stacked
+bindsym $mod+s layout stacking
+bindsym $alt+s layout stacking
+
+## Toggle split
+bindsym $mod+e layout toggle split
+bindsym $alt+e layout toggle split
+
+# Select parent container
+bindsym $mod+a focus parent
+bindsym $alt+a focus parent
+
+# Scratchpad
+
+## Move tile to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+## Cycle/close scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $alt+minus scratchpad show
+
+## Toggle between tiling and floating (puts scratchpad into title again)
+bindsym $mod+space floating toggle
+bindsym $alt+space floating toggle
+
+## Regenerate config and restart i3 inplace (keep everything the way it was)
+bindsym $mod+Shift+r exec python $HOME/.config/i3/Scripts/generate_config.py && i3-msg restart
+bindsym $alt+Shift+r exec python $HOME/.config/i3/Scripts/generate_config.py && i3-msg restart
+
+# Lock i3
+bindsym $mod+Shift+q exec sh $HOME/.config/i3/Scripts/blurlock.sh
+
+# Volume control
+
+## Increase volume
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+
+## Decrease volume
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+
+# Brightness control
+
+## Increase brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+
+## Decrease brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+# Bumblebee-status bar settings :D
+
+bar {
+	font pango:Inconsolata 15, FontAwesome 15
+	position top
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status \
+		-t  iceberg-rainbow \
+		-m publicip disk:root battery memory cpu pomodoro date \
+		-p disk.format=" {left}" disk.system="SI" memory.system="SI" memory.format=" {used}  ({percent:05.02f}%)" date.format="%a  %-d  %b  %H : %M" date.interval=1 todo_org.remaining="false" todo.file="~/Documents/todo.txt" 
+}
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+#exec --no-startup-id xss-lock -- $HOME/.config/i3/Scripts/blurlock.sh
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Start networkmanager, set keyboard layout, start sxhkd (for keybindings)
+exec --no-startup-id nm-applet
+exec_always setxkbmap -layout gb
+
+# Display Wallpaper
+exec_always feh --bg-fill "$HOME/Pictures/Wallpapers/cyberpunk-girl.jpg"
+
+# Always load Flameshot, delete recent files and start picom
+exec --no-startup-id mate-power-manager
+exec flameshot
+exec_always rm ~/.local/share/recently-used.xbel
+exec_always rm ~/.bash_history
+exec_always echo "" > ~/.python_history
+exec_always echo "" > ~/.viminfo
+exec_always picom --no-fading-openclose --corner-radius=5 --inactive-opacity 1 -I 1 -O 1 -m 1
+
+# Assign Programs to specifc workspaces
+
+assign [class="firefox"] "1  "
+assign [class="Brave-browser"] "1  "
+assign [class="Logseq"] "6  "
+assign [class="VirtualBox Manager"] "7  "
+assign [class="KeePassXC"] "10  "
+assign [class="Signal"] "16  "
+assign [class="Gimp"] "17  "
+assign [class="nuclear"] "19  "
+assign [class="Mixxx"] "19  "
+assign [class="Popcorn-Time"] "20  "
+assign [class="FreeTube"] "20  "
+
+# Outputs for two monitors
+set $m1 "eDP-1"
+set $m2 "HDMI-1"
+
+workspace 1 output $m1
+workspace 2 output $m1
+workspace 3 output $m1
+workspace 4 output $m1
+workspace 5 output $m1
+workspace 6 output $m1
+workspace 7 output $m1
+workspace 8 output $m1
+workspace 9 output $m1
+workspace 10 output $m1
+workspace 11 output $m2
+workspace 12 output $m2
+workspace 13 output $m2
+workspace 14 output $m2
+workspace 15 output $m2
+workspace 16 output $m2
+workspace 17 output $m2
+workspace 18 output $m2
+workspace 19 output $m2
+workspace 20 output $m2
+
+# Resize windows
+
+## Enter "resize" mode
+bindsym $mod+r mode "resize"
+bindsym $alt+r mode "resize"
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# i3 gaps
+
+## Enter adjust gaps mode
+bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $alt+Shift+g mode "$mode_gaps"
+
+# Set inner/outer gaps
+gaps inner 12
+gaps outer 1
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: Shift + +|-|0 (global)
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner all plus 5
+        bindsym minus gaps inner all minus 5
+        biNdsym 0 gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus gaps outer all plus 5
+        bindsym minus gaps outer all minus 5
+        bindsym 0 gaps outer al20set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Move floating windows with keys
+
+## Enter move floating tile mode
+bindsym $mod+m mode "move" focus floating
+
+mode "move" {
+    bindsym $mod+Tab focus right
+
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
+
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+
+  bindsym l exec i3-msg exit
+
+  bindsym r exec systemctl reboot
+
+  bindsym s exec systemctl shutdown
+
+  bindsym Escape mode "default"
+
+  bindsym Return mode "default"
+
+}
+
+# Define colours for easy switching
+#
+set $bg-color 	         #6790EB
+set $inactive-bg-color   #1d2951
+set $text-color          #FFFFFF
+set $inactive-text-color #FFFFFF
+set $urgent-bg-color     #E53935
+set $border-active-color #4169e1
+
+# Set border thickness
+for_window [class=".*"] border pixel 4
+
+# window colors OLD
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+

@@ -1,0 +1,2 @@
+#!/bin/bash
+Rscript -e "rmarkdown::render('$1')"
