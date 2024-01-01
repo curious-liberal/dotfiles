@@ -28,6 +28,23 @@ bindsym $alt+Shift+b exec echo -n | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#f
 
 This will require some basic linux knowledge (or research) to setup by essentially allows you to stream video files to your webcam.
 
+### Random Mac address
+
+Go to `/etc/NetworkManager/conf.d/00-macrandomize.conf ` and add the following:
+
+```
+[device]
+wifi.scan-rand-mac-address=yes
+
+[connection]
+wifi.cloned-mac-address=stable
+ethernet.cloned-mac-address=stable
+connection.stable-id=${CONNECTION}/${BOOT}
+```
+Note that `wifi.cloned-mac-address=` **stable** will create a random virtual mac address per connection (access point it connects to). If you want it completely random then change this from **stable** to **random**.
+
+Afterwards you need to restart NetworkManager for the effects to take place using `doas systemctl restart NetworkManager`
+
 ### Knit
 
 Essentially this command allows me to render RMarkdown files easily. To install run the following:
@@ -35,15 +52,29 @@ Essentially this command allows me to render RMarkdown files easily. To install 
 ```shell
 # Because it's a personal script
 sudo cp knit /usr/local/bin/
-# To install just for one user (I don't do this)
-sudo cp knit ~/bin/knit
 ```
+
+### Doas
+
+I don't like to use sudo as it has had several vulnerabilities in the past such as buffer-overflow and more. Doas is the superior option. Install it and run the following as root:  `echo "permit persist :wheel" > /etc/doas.conf
+
+### USBguard
+
+Install usbguard and then enable it with  `doas systemctl enable usbguard --now`
+
+To find blocked usb devices run: `doas usbguard list-devices --tree -b`
+
+To allow a usb-device to work (until unplugged) run: `doas usbguard allow-device <device number>`
+
+To allow a usb-device to work **permanently** run: `doas usbguard allow-device <device number> -p`
+
+Additionally you can block devices using "block" instead of "allow"
 
 # Shell settings
 Just run the following:
 
 ```shell
-sudo pacman -Syyu zsh && sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+doas pacman -Syyu zsh && sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 Then run ```chsh``` and enter ```/bin/zsh``` when prompted.
@@ -58,3 +89,10 @@ Also might be a good idea to copy over the vscodeconfig file to VScode as well a
 
 # There's a few dependancies but you'll work them out ;)
 
+Here are a few that I remember and I'll keep adding to it
+
+```doas pacman -Syyu xdotool imagemagick scrot network-manager-applet flameshot alsa-utils ttf-nerd-fonts-symbols noto-fonts noto-fonts-emoji ttf-hack veracrypt python-pip python-requests python-bs4 thunar thunar-volman thunar-archive-plugin zip unzip neovim picom i3-gaps xorg dmenu exfat-utils usbguard feh xorg-xinit sddm xclip htop net-tools networkmanager android-tools```
+
+You'll need to install yay then...
+
+`yay logseq lesspass`
