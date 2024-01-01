@@ -83,9 +83,27 @@ Next cp over the .zshrc file from here to your home directory and BOOM!
 
 # Another note
 
+### Bumblebee status bar
+
 Make sure to ```cd``` into *$HOME/.config/i3* and run ```git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git```
 
+You'll also need to install the required dependancies for the modules you're using: [Find docs here](https://bumblebee-status.readthedocs.io/en/main/modules.html)
+
+Without modifications you'll need the following pip modules: `psutil` (for cpu) and `netifaces` (for publicip)
+
+### VSCode
+
 Also might be a good idea to copy over the vscodeconfig file to VScode as well as installing the font VictorMono (which is amazing!)
+
+### Touchpad (tap to click)
+
+With the i3 config, touchpad where you're able to tap the touchpad to click may not work. Here's why and how to fix it:
+
+The following line enables feature:  `exec_always xinput set-prop "MSFT0001:00 04F3:3082 Touchpad" "libinput Tapping Enabled" 1` and work for my **specific** touchpad. Note yours might need to be changed. To find yours run `xinput`
+
+### Setting everything to dark mode
+
+`echo "gtk-application-prefer-dark-theme=1" >> $HOME/.config/gtk-3.0/settings.ini`
 
 # There's a few dependancies but you'll work them out ;)
 
