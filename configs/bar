@@ -1,0 +1,11 @@
+# Bumblebee-status bar settings :D
+
+bar {
+	font pango:Inconsolata 15, FontAwesome 15
+	position top
+	status_command ~/.config/i3/bumblebee-status/bumblebee-status \
+		-t  iceberg-rainbow \
+		-m publicip disk:root battery memory cpu pomodoro date \
+		-p disk.format=" {left}" disk.system="SI" memory.system="SI" memory.format=" {used}  ({percent:05.02f}%)" date.format="%a  %-d  %b  %H : %M" date.interval=1 todo_org.remaining="false" todo.file="~/Documents/todo.txt" 
+}
+
