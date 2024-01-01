@@ -2,7 +2,7 @@
 
 ![Picture of i3 rice](./i3.png)
 
-## What's unique
+## What makes it awesome
 
 ### Compartmentalisation
 
@@ -26,7 +26,7 @@ bindsym $alt+Shift+b exec echo -n | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#f
 
 ### Fake webcam in scripts
 
-This will require some basic linux knowledge (or research) to setup by essentially allows you to stream video files to your webcam.
+This will require some basic linux knowledge (or research) to setup but essentially allows you to stream video files to your webcam. You can also do a similar thing with OBS studio
 
 ### Random Mac address
 
@@ -59,6 +59,8 @@ sudo cp knit /usr/local/bin/
 I don't like to use sudo as it has had several vulnerabilities in the past such as buffer-overflow and more. Doas is the superior option. Install it and run the following as root:  `echo "permit persist :wheel" > /etc/doas.conf
 
 ### USBguard
+
+Basically stops rubber ducky attacks and any unauthorised USB device accessing the system
 
 Install usbguard and then enable it with  `doas systemctl enable usbguard --now`
 
@@ -113,4 +115,4 @@ Here are a few that I remember and I'll keep adding to it
 
 Some of those will need sorting with a lil systemctl enable magic. You'll then need to install yay to install logseq and lesspass...
 
-`yay logseq lesspass`
+`yay logseq lesspass cmatrix-git pipes.sh`
