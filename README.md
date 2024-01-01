@@ -109,8 +109,8 @@ The following line enables feature:  `exec_always xinput set-prop "MSFT0001:00 0
 
 Here are a few that I remember and I'll keep adding to it
 
-```doas pacman -Syyu xdotool imagemagick scrot network-manager-applet flameshot alsa-utils ttf-nerd-fonts-symbols noto-fonts noto-fonts-emoji ttf-hack veracrypt python-pip python-requests python-bs4 thunar thunar-volman thunar-archive-plugin zip unzip neovim picom i3-gaps xorg dmenu exfat-utils usbguard feh xorg-xinit sddm xclip htop net-tools networkmanager android-tools qbittorrent```
+```doas pacman -Syyu xdotool imagemagick scrot network-manager-applet flameshot alsa-utils ttf-nerd-fonts-symbols noto-fonts noto-fonts-emoji ttf-hack veracrypt python-pip python-requests python-bs4 thunar thunar-volman thunar-archive-plugin zip unzip neovim picom i3-gaps xorg dmenu exfat-utils usbguard feh xorg-xinit sddm xclip htop net-tools networkmanager android-tools qbittorrent docker docker-compose keepassxc```
 
-You'll need to install yay then...
+Some of those will need sorting with a lil systemctl enable magic. You'll then need to install yay to install logseq and lesspass...
 
 `yay logseq lesspass`
