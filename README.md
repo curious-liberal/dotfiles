@@ -109,6 +109,22 @@ The following line enables feature:  `exec_always xinput set-prop "MSFT0001:00 0
 
 # There's a few dependancies but you'll work them out ;)
 
+# If running MacOS
+
+- Install brew
+- Run `brew install --cask amethyst`
+- Enable amethyst in accessability settings
+- Create a bunch of Desktops (use ctrl+up_arrow)
+- Go to settings, keybindings and remove them all
+- Set spotlight to run with cmd+d
+- Go to missionary and assign cmd+n to change Desktop spaces
+- Add amethyst config file to ~/.config/amethyst/amethyst.yml
+- Relaunch amethyst
+- Delete config file and relaunch
+- Go to Amethyst, preferences and delete any unncessary or conflicting keybindings (this is a bug and unfortunately has to be done but takes 5 seconds)
+- Also install neovim and ZSH because they're cool!
+- Enjoy \o/
+
 Here are a few that I remember and I'll keep adding to it
 
 ```doas pacman -Syyu xdotool imagemagick scrot network-manager-applet flameshot alsa-utils ttf-nerd-fonts-symbols noto-fonts noto-fonts-emoji ttf-hack veracrypt python-pip python-requests python-bs4 thunar thunar-volman thunar-archive-plugin zip unzip neovim picom i3-gaps xorg dmenu exfat-utils usbguard feh xorg-xinit sddm xclip htop net-tools networkmanager android-tools qbittorrent docker docker-compose keepassxc```
