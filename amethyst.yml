@@ -60,6 +60,75 @@ throw-space-right:
 toggle-tiling:
   mod: mod2
   key: t
+relaunch-amethyst:
+  mod: mod2
+  key: r
+
+# Your Custom Configuration Settings
+enables-layout-hud-on-space-change: false
+follow-space-thrown-windows: false
+# layouts
+layouts:
+  - tall
+  - fullscreen
+  - wide
+
+# Modifiers
+mod1:
+  - command
+mod2:
+  - shift
+  - command
+
+# Your Custom Commands
+shrink-main:
+  mod: mod2
+  key: h
+expand-main:
+  mod: mod2
+  key: l
+focus-ccw:
+  mod: mod1
+  key: j
+focus-cw:
+  mod: mod1
+  key: k
+focus-main:
+  mod: mod1
+  key: m
+swap-screen-ccw:
+  mod: mod2
+  key: h
+swap-screen-cw:
+  mod: mod2
+  key: l
+swap-ccw:
+  mod: mod2
+  key: j
+swap-cw:
+  mod: mod2
+  key: k
+swap-main:
+  mod: mod2
+  key: s
+select-tall-layout:
+  mod: mod1
+  key: e
+select-wide-layout:
+  mod: mod2
+  key: v
+select-fullscreen-layout:
+  mod: mod1
+  key: f
+throw-space-left:
+  mod: mod2
+  key: left
+throw-space-right:
+  mod: mod2
+  key: right
+toggle-tiling:
+  mod: mod2
+  key: t
 reevaluate-windows:
   mod: mod1
   key: r
@@ -70,4 +139,4 @@ relaunch-amethyst:
 # Your Custom Configuration Settings
 enables-layout-hud-on-space-change: false
 follow-space-thrown-windows: false
-
+remember-layouts: false
