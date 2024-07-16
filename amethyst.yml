@@ -69,4 +69,5 @@ relaunch-amethyst:
 
 # Your Custom Configuration Settings
 enables-layout-hud-on-space-change: false
+follow-space-thrown-windows: false
 
