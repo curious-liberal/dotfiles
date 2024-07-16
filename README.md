@@ -122,7 +122,7 @@ The following line enables feature:  `exec_always xinput set-prop "MSFT0001:00 0
 - Relaunch amethyst
 - Delete config file and relaunch
 - Go to Amethyst, preferences and delete any unncessary or conflicting keybindings (this is a bug and unfortunately has to be done but takes 5 seconds)
-- You can also right click on an app on the dock and go to "options" and then "assign to" "this desktop"
+- You can also right click on an app on the dock and go to "options" and then "assign to" "this desktop" - this will make an app open in that space by default
 - Also install neovim and ZSH because they're cool!
 - Enjoy \o/
 
