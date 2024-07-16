@@ -13,10 +13,10 @@ mod2:
 
 # Your Custom Commands
 shrink-main:
-  mod: mod1
+  mod: mod2
   key: h
 expand-main:
-  mod: mod1
+  mod: mod2
   key: l
 focus-ccw:
   mod: mod1
