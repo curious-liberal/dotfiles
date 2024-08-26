@@ -1,32 +1,8 @@
 # Dot files
 
-![Picture of i3 rice](./i3.png)
+![Picture of Hyprland rice](./Hyprland rice.png)
 
-## What makes it awesome
-
-### Compartmentalisation
-
-Personally I believe the i3 config file is extremely messy and hard to maintain. Consequently I have compartmentalised it into several configuration files that a Python script strings together. Note that this Python script runs everytime i3 is reloaded using  ```$mod+Shift+r```. Furthermore ANYTHING in the *configs* directory will end up in the i3 configs file - therefore it's imperative **only** config files go in there. Additionally it is advisable to have a new line at the end of each config file to keep the actual i3 config file neat (although you'll probably never look at it again so it doesn't really matter).
-
-### Bookmark system
-
-In ```configs/keybindings``` you'll find the following lines:
-
-```shell
-# Run dmenu for bookmarks (open in default browser)
-bindsym $mod+b exec xdg-open $(grep -v '^#' $HOME/.config/i3/bm.txt | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5' | cut -d' ' -f1)
-bindsym $alt+b exec xdotool type $(grep -v '^#' $HOME/.config/i3/bm.txt | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5' | cut -d' ' -f1)
-
-# Run dmenu to add bookmark
-bindsym $mod+Shift+b exec echo -n | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5' -p "URL: " >> $HOME/.config/i3/bm.txt
-bindsym $alt+Shift+b exec echo -n | dmenu -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=22.5' -p "URL: " >> $HOME/.config/i3/bm.txt
-```
-
-```$mod+b``` allows bookmarks to be searched using dmenu and the search to open in the default browser. Alternatively ```$alt+b``` will use *xdotool type* to type it out; useful if you have a search bar selected (usually ```ctrl+l``` in most browsers. Note that you can also add bookmarks too; experiment as you like!
-
-### Fake webcam in scripts
-
-This will require some basic linux knowledge (or research) to setup but essentially allows you to stream video files to your webcam. You can also do a similar thing with OBS studio
+Hyprland config lives in `~/.config/hypr/hyprland.conf`
 
 ### Random Mac address
 
@@ -45,18 +21,9 @@ Note that `wifi.cloned-mac-address=` **stable** will create a random virtual mac
 
 Afterwards you need to restart NetworkManager for the effects to take place using `doas systemctl restart NetworkManager`
 
-### Knit
-
-Essentially this command allows me to render RMarkdown files easily. To install run the following:
-
-```shell
-# Because it's a personal script
-sudo cp knit /usr/local/bin/
-```
-
 ### Doas
 
-I don't like to use sudo as it has had several vulnerabilities in the past such as buffer-overflow and more. Doas is the superior option. Install it and run the following as root:  `echo "permit persist :wheel" > /etc/doas.conf
+I don't like to use sudo as it has had several vulnerabilities in the past such as buffer-overflow and more. Doas is the superior option. Install it and run the following as root:  `echo "permit persist :wheel" > /etc/doas.conf`
 
 ### USBguard
 
@@ -79,23 +46,11 @@ Just run the following:
 doas pacman -Syyu zsh && sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
-Then run ```chsh``` and enter ```/bin/zsh``` when prompted.
-
 Next cp over the .zshrc file from here to your home directory and BOOM!
-
-# Another note
-
-### Bumblebee status bar
-
-Make sure to ```cd``` into *$HOME/.config/i3* and run ```git clone https://github.com/tobi-wan-kenobi/bumblebee-status.git```
-
-You'll also need to install the required dependancies for the modules you're using: [Find docs here](https://bumblebee-status.readthedocs.io/en/main/modules.html)
-
-Without modifications you'll need the following pip modules: `psutil` (for cpu) and `netifaces` (for publicip)
 
 ### VSCode
 
-Also might be a good idea to copy over the vscodeconfig file to VScode as well as installing the font VictorMono (which is amazing!)
+Also might be a good idea to copy over the vscodeconfig file to VScode as well as installing the font [Victor Mono]https://rubjo.github.io/victor-mono/). To do this download the font from the link provided, extract the files and copy the contents of TTF/* to `/usr/share/fonts/TTF`
 
 ### Touchpad (tap to click)
 
@@ -107,7 +62,7 @@ The following line enables feature:  `exec_always xinput set-prop "MSFT0001:00 0
 
 `echo "gtk-application-prefer-dark-theme=1" >> $HOME/.config/gtk-3.0/settings.ini`
 
-# There's a few dependancies but you'll work them out ;)
+You may also want to install arc-dark and an icon pack which can easily be applied with lxappearance (you can uninstall this app afterwards)
 
 # If running MacOS
 
@@ -126,10 +81,33 @@ The following line enables feature:  `exec_always xinput set-prop "MSFT0001:00 0
 - Also install neovim and ZSH because they're cool!
 - Enjoy \o/
 
-Here are a few that I remember and I'll keep adding to it
+## Dependancies
 
-```doas pacman -Syyu xdotool imagemagick scrot network-manager-applet flameshot alsa-utils ttf-nerd-fonts-symbols noto-fonts noto-fonts-emoji ttf-hack veracrypt python-pip python-requests python-bs4 thunar thunar-volman thunar-archive-plugin zip unzip neovim picom i3-gaps xorg dmenu exfat-utils usbguard feh xorg-xinit sddm xclip htop net-tools networkmanager android-tools qbittorrent docker docker-compose keepassxc```
++ hyprland (obviously)
++ hyprpaper
++ grim
++ hyprshot
++ waybar
++ wofi
++ ttf-nerd-fonts-symbols
++ ttf-jetbrains-mono
++ alsa-utils
++ alsa-firmware
++ power-profiles-daemon
++ networkmanager
++ alacritty
 
-Some of those will need sorting with a lil systemctl enable magic. You'll then need to install yay to install logseq and lesspass...
+I believe that is basically it but there might be things missing, if something doesn't work then RTFM 🤷
 
-`yay logseq lesspass cmatrix-git pipes.sh`
+### AUR stuff
+
+`yay logseq pfetch brave-bin lesspass cmatrix-git pipes.sh sddm-catppuccin-git swaylock-effects-git`
+
+## A note about SDDM
+
+First you have to install sddm-catppuccin-git from the AUR. You then need to clone it to `/usr/share/sddm/themes` and edit it as appropriate. You'll then need to change your SSDM conf by editing `/etc/sddm.conf` so it reads:
+```
+[Theme]
+Current=catppuccin
+```
+To add your profile picture please add `darlene.face.icon` to `/usr/share/sddm/faces`
