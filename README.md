@@ -39,7 +39,7 @@ To allow a usb-device to work **permanently** run: `doas usbguard allow-device <
 
 Additionally you can block devices using "block" instead of "allow"
 
-## Shell settings
+### Shell settings
 Just run the following:
 
 ```shell
@@ -52,19 +52,47 @@ Next cp over the .zshrc file from here to your home directory and BOOM!
 
 Also might be a good idea to copy over the vscodeconfig file to VScode as well as installing the font [Victor Mono]https://rubjo.github.io/victor-mono/). To do this download the font from the link provided, extract the files and copy the contents of TTF/* to `/usr/share/fonts/TTF`
 
-### Touchpad (tap to click)
-
-With the i3 config, touchpad where you're able to tap the touchpad to click may not work. Here's why and how to fix it:
-
-The following line enables feature:  `exec_always xinput set-prop "MSFT0001:00 04F3:3082 Touchpad" "libinput Tapping Enabled" 1` and work for my **specific** touchpad. Note yours might need to be changed. To find yours run `xinput`
-
 ### Setting everything to dark mode
 
 `echo "gtk-application-prefer-dark-theme=1" >> $HOME/.config/gtk-3.0/settings.ini`
 
 You may also want to install arc-dark and an icon pack which can easily be applied with lxappearance (you can uninstall this app afterwards)
 
-# If running MacOS
+## Dependancies
+
++ hyprland (obviously)
++ hyprpaper
++ grim
++ hyprshot
++ waybar
++ wofi
++ ttf-nerd-fonts-symbols
++ ttf-jetbrains-mono
++ alsa-utils
++ alsa-firmware
++ pulseaudio (this just makes life easier)
++ brightnessctl (for controlling brightness keys)
++ playerctl (for making pause, play and skip buttons work)
++ power-profiles-daemon
++ networkmanager
++ alacritty
+  
+I believe that is basically it but there might be things missing, if something doesn't work then RTFM 🤷
+
+### AUR stuff
+
+`yay logseq pfetch brave-bin lesspass cmatrix-git pipes.sh sddm-catppuccin-git swaylock-effects-git`
+
+## A note about SDDM
+
+First you have to install sddm-catppuccin-git from the AUR. You then need to clone it to `/usr/share/sddm/themes` and edit it as appropriate. You'll then need to change your SSDM conf by editing `/etc/sddm.conf` so it reads:
+```
+[Theme]
+Current=catppuccin
+```
+To add your profile picture please add `darlene.face.icon` to `/usr/share/sddm/faces`
+
+## If running MacOS
 
 - Install brew
 - Run `brew install --cask amethyst`
@@ -80,34 +108,3 @@ You may also want to install arc-dark and an icon pack which can easily be appli
 - You can also right click on an app on the dock and go to "options" and then "assign to" "this desktop" - this will make an app open in that space by default
 - Also install neovim and ZSH because they're cool!
 - Enjoy \o/
-
-## Dependancies
-
-+ hyprland (obviously)
-+ hyprpaper
-+ grim
-+ hyprshot
-+ waybar
-+ wofi
-+ ttf-nerd-fonts-symbols
-+ ttf-jetbrains-mono
-+ alsa-utils
-+ alsa-firmware
-+ power-profiles-daemon
-+ networkmanager
-+ alacritty
-
-I believe that is basically it but there might be things missing, if something doesn't work then RTFM 🤷
-
-### AUR stuff
-
-`yay logseq pfetch brave-bin lesspass cmatrix-git pipes.sh sddm-catppuccin-git swaylock-effects-git`
-
-## A note about SDDM
-
-First you have to install sddm-catppuccin-git from the AUR. You then need to clone it to `/usr/share/sddm/themes` and edit it as appropriate. You'll then need to change your SSDM conf by editing `/etc/sddm.conf` so it reads:
-```
-[Theme]
-Current=catppuccin
-```
-To add your profile picture please add `darlene.face.icon` to `/usr/share/sddm/faces`
