@@ -39,7 +39,7 @@ To allow a usb-device to work **permanently** run: `doas usbguard allow-device <
 
 Additionally you can block devices using "block" instead of "allow"
 
-# Shell settings
+## Shell settings
 Just run the following:
 
 ```shell
