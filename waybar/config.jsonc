@@ -1,0 +1,120 @@
+{
+	"layer": "top",
+	"modules-left": [
+		"disk",
+		"cpu",
+		"memory",
+		"custom/waymedia",
+		"tray"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"pulseaudio",
+		"battery",
+		"clock",
+		"network"
+	],
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "   {volume}%",
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": [
+				"",
+				" ",
+				"  "
+			]
+		}
+	},
+	"river/tags": {
+		"num-tags": 4
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"6": "",
+			"8": "󰊗",
+			"9": "",
+			"10": "",
+			"11": "",
+			"12": "",
+			"14": "󰽰",
+			"16": "",
+			"17": "",
+			"18": "󰣖",
+			"19": "",
+			"20": "",
+			"urgent": ""
+		}
+	},
+	"network": {
+		"tooltip": true,
+		"tooltip-format": "{essid} @ {signalStrength}% / {bandwidthUpBits}   {bandwidthDownBits} ",
+		"format-wifi": " "
+	},
+	"backlight": {
+		"tooltip": false,
+		"format": " {}%",
+		"interval": 1,
+		"on-scroll-up": "brightnessctl set +5%",
+		"on-scroll-down": "brightnessctl set 5%-"
+	},
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 20
+		},
+		"format": "{icon}   {capacity}%",
+		"format-charging": "   {capacity}%",
+		"format-plugged": "   {capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"tray": {
+		"icon-size": 18,
+		"spacing": 10,
+		"show-passive-items": true
+	},
+	"disk": {
+	    "interval": 30,
+	    "format": "  {free} ({percentage_free}%)",
+	    "tooltip": true,
+	    "tooltip-format": "{free} available. {used} ({percentage_used}%) of {total} used",
+	    "path": "/"
+	},
+	"clock": {
+		"format": " {:%a %e %b %H:%M}",
+		"tooltip": false
+	},
+	"cpu": {
+		"interval": 15,
+		"format": "    {}%",
+		"max-length": 10
+	},
+	"memory": {
+		"interval": 30,
+		"format": "   {}%",
+		"tooltip": true,
+		"tooltip-format": "{used:0.1f}G / {total:0.1f}G",
+		"max-length": 10
+	},
+	"custom/launcher": {
+		"format": "󱓞 ",
+		"on-click": "wofi -c $HOME/.config/wofi/config",
+		"on-click-right": "killall wofi"
+	}
+}

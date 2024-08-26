@@ -1,0 +1,243 @@
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color rosewater #f4dbd6;
+@define-color flamingo #f0c6c6;
+@define-color pink #f5bde6;
+@define-color mauve #c6a0f6;
+@define-color red #ed8796;
+@define-color maroon #ee99a0;
+@define-color peach #f5a97f;
+@define-color yellow #eed49f;
+@define-color green #a6da95;
+@define-color teal #8bd5ca;
+@define-color sky #91d7e3;
+@define-color sapphire #7dc4e4;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+@define-color text #cad3f5;
+@define-color subtext1 #b8c0e0;
+@define-color subtext0 #a5adcb;
+@define-color overlay2 #939ab7;
+@define-color overlay1 #8087a2;
+@define-color overlay0 #6e738d;
+@define-color surface2 #5b6078;
+@define-color surface1 #494d64;
+@define-color surface0 #363a4f;
+@define-color base #24273a;
+@define-color mantle #1e2030;
+@define-color crust #181926;
+
+* {
+	border: none;
+	border-radius: 20px;
+	font-family: "JetbrainsMono Nerd Font" ;
+	font-size: 12.5px;
+	min-height: 10px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-bottom: 6px;
+	padding-right: 10px;
+	border-radius: 20px;
+	transition: none;
+    	color: transparent;
+	background: transparent;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/Module:-Workspaces */
+#workspaces {
+	margin-top: 6px;
+	margin-left: 12px;
+	font-size: 4px;
+	margin-bottom: 0px;
+	border-radius: 20px;
+	padding: 2px;
+	color: @base;
+	background: @mauve;
+	
+	transition: none;
+}
+#workspaces button {
+	transition: none;
+	font-size: 16px;
+	padding-left: 5px;
+	border-radius: 20px;
+}
+
+#workspaces button.active {
+	color: @subtext0;
+	background-color: @base;
+  	border-radius: 20px;
+	border-style: none;
+}
+
+#workspaces button.visible
+#workspaces button.urgent
+#workspaces button.hidden
+
+#workspaces button.occupied {
+	transition: none;
+	color: @base;
+	background: transparent;
+	font-size: 4px;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	border-radius: 20px;
+    	color: @base;
+	background: @overlay2;
+}
+
+#network {
+	margin-top: 6px;
+	margin-left: 8px;
+	margin-right: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 20px;
+	transition: none;
+	color: @base;
+	background: @mauve;
+	
+}
+
+#pulseaudio {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 20px;
+	transition: none;
+	color: @base;
+	background: @yellow;
+	
+}
+
+#battery {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 20px;
+	transition: none;
+	color: @base;
+	background: @teal;
+	
+}
+
+#battery.charging, #battery.plugged {
+	color: @base;
+    	background-color: @teal;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @teal;
+    color: @base;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @red;
+        color: @teal;
+    }
+}
+
+#disk {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 20px;
+	transition: none;
+	color: @base;
+	background: @peach;
+}
+
+#clock {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	border-radius: 20px;
+	transition: none;
+	color: @base;
+	background: @green;
+	
+}
+
+#memory {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	border-radius: 20px;
+	transition: none;
+	color: @base;
+	background: @pink;
+	
+}
+
+#cpu {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	border-radius: 20px;
+	transition: none;
+	color: @base;
+	background: @sapphire;
+}
+
+#tray {
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+	border-radius: 20px;
+	transition: none;
+	color: @subtext1;
+	background: @base;
+}
+
+#custom-launcher {
+	font-size: 24px;
+	margin-top: 6px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 5px;
+	border-radius: 20px;
+	transition: none;
+	color: @base;
+    	background: @subtext0;
+}
