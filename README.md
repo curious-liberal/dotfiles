@@ -1,6 +1,6 @@
 # Dot files
 
-![Picture of Hyprland rice](./Hyprland rice.png)
+![Picture of Hyprland rice](./Hyprland\ rice.png)
 
 Hyprland config lives in `~/.config/hypr/hyprland.conf`
 
