@@ -20,7 +20,7 @@
 		"tooltip": false,
 		"scroll-step": 5,
 		"format": "{icon} {volume}%",
-		"format-muted": "   {volume}%",
+		"format-muted": "  {volume}%",
 		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
 			"default": [
@@ -39,8 +39,8 @@
 		"format-icons": {
 			"1": "",
 			"2": "",
+			"5": "",
 			"6": "",
-			"7": "",
 			"8": "󰊗",
 			"9": "",
 			"10": "",
@@ -98,12 +98,12 @@
 	    "path": "/"
 	},
 	"clock": {
-		"format": " {:%a %e %b %H:%M}",
+		"format": "  {:%a%e %b %H:%M}",
 		"tooltip": false
 	},
 	"cpu": {
 		"interval": 15,
-		"format": "    {}%",
+		"format": "   {}%",
 		"max-length": 10
 	},
 	"memory": {
