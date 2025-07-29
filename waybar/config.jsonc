@@ -4,8 +4,7 @@
 		"disk",
 		"cpu",
 		"memory",
-		"custom/waymedia",
-		"tray"
+		"custom/waymedia"
 	],
 	"modules-center": [
 		"hyprland/workspaces"
@@ -58,7 +57,10 @@
 	"network": {
 		"tooltip": true,
 		"tooltip-format": "{essid} @ {signalStrength}% / {bandwidthUpBits}   {bandwidthDownBits} ",
-		"format-wifi": " "
+		"format-wifi": " ",
+		"format-ethernet": " ",
+		"format-disabled": " ",
+		"format-disconnected": " "
 	},
 	"backlight": {
 		"tooltip": false,
@@ -98,7 +100,7 @@
 	    "path": "/"
 	},
 	"clock": {
-		"format": "  {:%a%e %b %H:%M}",
+		"format": "  {:%a %e %b %H:%M}",
 		"tooltip": false
 	},
 	"cpu": {
