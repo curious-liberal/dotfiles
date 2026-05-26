@@ -1,0 +1,29 @@
+/* Transform [[Page]] rendering into tag-style pill for your DOM */
+
+/* 1) hide the explicit bracket spans */
+.page-reference > .bracket {
+  display: none !important;
+}
+
+/* 2) style the link inside .page-reference like a tag */
+.page-reference a.page-ref {
+  background: var(--bf-tag-background-color);
+  color: var(--ls-tag-text-color);
+  padding: 0.12em 0.5em;
+  opacity: var(--ls-tag-text-opacity, .7);
+  border-radius: 999px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: none;
+  display: inline-block;
+}
+
+.page-reference { display: inline-flex; align-items: center; gap: 0; }
+
+
+/* 3) make rendered pill match existing .tag spacing */
+.page-reference a.page-ref + .bracket { display: none; } /* extra safety */
+
+/* 4) ensure the inline wrapper doesn't add extra layout gap */
+.page-reference { display: inline-flex; align-items: center; gap: 0; }
