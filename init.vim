@@ -1,8 +1,3 @@
-set nocompatible
-filetype plugin on
-syntax on
-
-
 " Plugin manager
 call plug#begin('~/.local/share/nvim/plugged')
 
