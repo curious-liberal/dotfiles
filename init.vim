@@ -36,6 +36,10 @@ let g:vimwiki_list = [{
       \ 'ext': 'md'
       \	}]
 
+" Ensure enter key creates [[link]] instead of [link](link) when using
+" markdown syntax https://github.com/vimwiki/vimwiki/issues/892 & https://github.com/ericboehs/dotfiles/commit/b47547f757fc31ed5f4241874982541ba7d6cf0a#diff-c7ea3092a41e833d0c0af7c6c532995d680a2e1ff809c63901146c7ed10ac35eR11
+autocmd VimEnter * let g:vimwiki_syntaxlocal_vars['markdown']['Link1'] = g:vimwiki_syntaxlocal_vars['default']['Link1']
+
 " Scope VimWikis access to path
 let g:vimwiki_global_ext = 0
 
